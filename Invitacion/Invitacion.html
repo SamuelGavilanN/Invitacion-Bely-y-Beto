@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Invitación Bely y Beto</title>
+    <!-- Importar fuente bonita e infantil de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffe600; /* Color de respaldo cálido */
+            font-family: 'Comic Neue', cursive, sans-serif;
+        }
+
+        /* Contenedor principal: Diseño para teléfono 16:9 */
+        .phone-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px; /* Ancho típico de móvil */
+            aspect-ratio: 9 / 16; /* Relación 16:9 vertical (9 ancho : 16 alto) */
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 20px; /* Bordes redondeados para efecto móvil */
+        }
+
+        /* Fondo 1: Imagen principal (Bely y Beto) */
+        .background-main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/Gm4HqkP.jpeg'); /* Sustituye con tu URL de la primera imagen si es local o de hosting */
+            /* Si usas la imagen subida como archivo local, cambia la url arriba por: url('nombre_archivo.jpg') */
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* Fondo 2: Patrón de rayos (Transparente detrás del contenido) */
+        .background-rayos {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Usamos la segunda imagen, pero con transparencia (opacidad) */
+            background-image: url('https://i.imgur.com/HRiGNFJ.jpeg'); /* Sustituye con tu URL de la segunda imagen */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5; /* Lo hace transparente */
+            mix-blend-mode: multiply; /* Mezcla suavemente con la imagen de abajo */
+            z-index: 2;
+            pointer-events: none; /* Permite que los toques pasen al fondo principal si es necesario */
+        }
+
+        /* Capa de contenido (Texto) */
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            /* Fondo semitransparente para que el texto se lea bien sobre el patrón */
+            background: rgba(255, 255, 255, 0.3); 
+            backdrop-filter: blur(2px); /* Desenfoque suave de fondo */
+            text-align: center;
+            color: #003366; /* Azul oscuro para contraste */
+            text-shadow: 2px 2px 0px #ffffff, -1px -1px 0 #ffffff; /* Borde blanco para legibilidad */
+        }
+
+        /* Estilos del texto */
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            color: #d32f2f; /* Rojo tipo Bely y Beto */
+            margin-bottom: 10px;
+            transform: rotate(-2deg); /* Toque divertido */
+            text-shadow: 3px 3px 0px #fff, 4px 4px 0px rgba(0,0,0,0.2);
+        }
+
+        .invite-text {
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            background-color: rgba(255, 215, 0, 0.7); /* Fondo amarillo festivo */
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin: 10px 0;
+            color: #1a237e;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .highlight {
+            color: #c62828;
+            font-weight: 900;
+        }
+
+        .footer-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            margin-top: 15px;
+            color: #c62828;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 25px;
+            border-radius: 50px;
+            border: 2px solid #ffcc00;
+            transform: rotate(3deg);
+            box-shadow: 0 4px 0 #b71c1c;
+        }
+
+        /* Responsive */
+        @media (max-width: 400px) {
+            h1 { font-size: 1.8rem; }
+            .invite-text { font-size: 1rem; padding: 10px; }
+            .footer-text { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-container">
+        <!-- Fondo 1: Personajes -->
+        <div class="background-main"></div>
+        
+        <!-- Fondo 2: Rayos transparentes -->
+        <div class="background-rayos"></div>
+
+        <!-- Texto de la invitación -->
+        <div class="content">
+            <h1>¡Hijo!</h1>
+            <div class="invite-text">
+                Te invito a ver <br>
+                <span class="highlight">Bely y Beto</span><br>
+                junto a mi
+            </div>
+            <div class="invite-text" style="background-color: rgba(255, 255, 255, 0.8); font-size: 1.1rem;">
+                El día <strong>29 de junio del 2026</strong><br>
+                a las <strong>16:30 Hrs</strong><br>
+                En el <strong>Teatro Caupolicán</strong>
+            </div>
+            <div class="footer-text">
+                ¡No Faltes!
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

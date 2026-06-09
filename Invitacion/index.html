@@ -4,64 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Invitación Bely y Beto</title>
-    <!-- Importar fuente bonita e infantil de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
     
     <style>
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #ffe600;
+            background-color: #ffcc00;
             font-family: 'Comic Neue', cursive, sans-serif;
         }
 
-        /* Contenedor principal: Diseño para teléfono 16:9 */
         .phone-container {
             position: relative;
             width: 100%;
             max-width: 400px;
             aspect-ratio: 9 / 16;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             border-radius: 20px;
         }
 
-        /* Fondo 1: Imagen principal (Bely y Beto) */
-        .background-main {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* RUTA DE LA IMAGEN PRINCIPAL */
-            background-image: url('Foto Principal.jpeg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        /* Fondo 2: Patrón de rayos (Transparente detrás del contenido) */
+        /* FONDO 1: Imagen de rayos amarillos (Fondo principal) */
         .background-rayos {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* RUTA DE LA IMAGEN DE FONDO (RAYOS) */
             background-image: url('Foto Fondo.jpeg');
             background-size: cover;
             background-position: center;
-            opacity: 0.4;
-            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+
+        /* FONDO 2: Imagen de Bely y Beto (detrás del texto, transparente) */
+        .background-bely {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Foto Principal.jpeg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35; /* Transparencia para ver los rayos detrás */
             z-index: 2;
             pointer-events: none;
         }
@@ -79,8 +69,6 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(2px);
             text-align: center;
             color: #003366;
         }
@@ -88,11 +76,15 @@
         /* Estilos del texto */
         h1 {
             font-family: 'Fredoka One', cursive;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: #d32f2f;
             margin-bottom: 10px;
             transform: rotate(-2deg);
             text-shadow: 3px 3px 0px #fff, 4px 4px 0px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
         }
 
         .invite-text {
@@ -100,15 +92,16 @@
             font-weight: 700;
             font-size: 1.3rem;
             line-height: 1.6;
-            background-color: rgba(255, 215, 0, 0.8);
+            background-color: rgba(255, 255, 255, 0.85);
             padding: 15px 20px;
             border-radius: 30px;
-            border: 3px solid #ffffff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            margin: 10px 0;
+            border: 3px solid #ffcc00;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 8px 0;
             color: #1a237e;
             width: 100%;
             max-width: 320px;
+            backdrop-filter: blur(2px);
         }
 
         .highlight {
@@ -118,49 +111,59 @@
 
         .footer-text {
             font-family: 'Fredoka One', cursive;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-top: 15px;
             color: #c62828;
             background: rgba(255, 255, 255, 0.9);
-            padding: 5px 25px;
+            padding: 5px 30px;
             border-radius: 50px;
-            border: 2px solid #ffcc00;
+            border: 3px solid #ffcc00;
             transform: rotate(3deg);
-            box-shadow: 0 4px 0 #b71c1c;
+            box-shadow: 0 5px 0 #b71c1c;
+            backdrop-filter: blur(2px);
         }
 
-        /* Responsive */
+        /* Decoración adicional */
+        .star {
+            color: #ffd700;
+            font-size: 2rem;
+            text-shadow: 2px 2px 0px #daa520;
+        }
+
         @media (max-width: 400px) {
-            h1 { font-size: 1.8rem; }
+            h1 { font-size: 2rem; }
             .invite-text { font-size: 1rem; padding: 10px; }
-            .footer-text { font-size: 2rem; }
+            .footer-text { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="phone-container">
-        <!-- Fondo 1: Personajes -->
-        <div class="background-main"></div>
-        
-        <!-- Fondo 2: Rayos transparentes -->
+        <!-- FONDO 1: Rayos amarillos (detrás de todo) -->
         <div class="background-rayos"></div>
+        
+        <!-- FONDO 2: Bely y Beto (transparente, encima de los rayos) -->
+        <div class="background-bely"></div>
 
         <!-- Texto de la invitación -->
         <div class="content">
-            <h1>¡Hijo!</h1>
+            <h1>⭐ ¡Hijo! ⭐</h1>
+            
             <div class="invite-text">
                 Te invito a ver <br>
-                <span class="highlight">Bely y Beto</span><br>
+                <span class="highlight">🎭 Bely y Beto 🎭</span><br>
                 junto a mi
             </div>
-            <div class="invite-text" style="background-color: rgba(255, 255, 255, 0.85); font-size: 1.1rem;">
-                El día <strong>29 de junio del 2026</strong><br>
-                a las <strong>16:30 Hrs</strong><br>
-                En el <strong>Teatro Caupolicán</strong>
+            
+            <div class="invite-text" style="background-color: rgba(255, 255, 255, 0.9); font-size: 1.1rem;">
+                📅 El día <strong>29 de junio del 2026</strong><br>
+                ⏰ a las <strong>16:30 Hrs</strong><br>
+                📍 En el <strong>Teatro Caupolicán</strong>
             </div>
+            
             <div class="footer-text">
-                ¡No Faltes!
+                🎉 ¡No Faltes! 🎉
             </div>
         </div>
     </div>

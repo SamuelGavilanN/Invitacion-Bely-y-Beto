@@ -14,12 +14,24 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* FONDO EXTERNO: Foto Fondo (rayos amarillos) */
-            background-image: url('Foto Fondo.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            /* FONDO EXTERNO: Rayos amarillos generados con CSS */
+            background: #ffcc00;
+            background-image: 
+                repeating-conic-gradient(
+                    from 0deg at 50% 50%,
+                    #ffcc00 0deg 5deg,
+                    #ff9900 5deg 10deg,
+                    #ffcc00 10deg 15deg
+                );
+            background-size: 100% 100%;
+            animation: rotateBg 60s linear infinite;
             font-family: 'Comic Neue', cursive, sans-serif;
+            overflow: hidden;
+        }
+
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Contenedor de la invitación */
@@ -33,8 +45,10 @@
             box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             /* FONDO INTERNO: Foto Principal (Bely y Beto) */
             background-image: url('Foto Principal.jpeg');
-            background-size: cover;
+            background-size: contain; /* Muestra la imagen completa */
             background-position: center;
+            background-repeat: no-repeat;
+            background-color: #fff5e6; /* Color de fondo suave para rellenar espacios */
             margin: 20px;
             border: 4px solid #ffcc00;
         }
@@ -50,52 +64,52 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             z-index: 2;
         }
 
         /* Estilos del texto */
         .title-box {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 10px 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 25px;
             border-radius: 50px;
             border: 3px solid #ffcc00;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             position: relative;
         }
 
         h1 {
             font-family: 'Fredoka One', cursive;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #d32f2f;
             text-shadow: 2px 2px 0px #fff;
         }
 
         .invite-box {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 20px 25px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 15px 20px;
             border-radius: 30px;
             border: 3px solid #ffcc00;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             width: 90%;
-            max-width: 300px;
+            max-width: 280px;
         }
 
         .invite-text {
             font-family: 'Comic Neue', cursive;
             font-weight: 700;
-            font-size: 1.3rem;
-            line-height: 1.8;
+            font-size: 1.2rem;
+            line-height: 1.6;
             color: #1a237e;
         }
 
         .highlight {
             color: #c62828;
             font-weight: 900;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
 
         /* Botón para abrir información */
@@ -104,13 +118,13 @@
             background: #ffcc00;
             color: #d32f2f;
             border: 3px solid #fff;
-            padding: 12px 30px;
+            padding: 10px 25px;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         .btn-info:active {
@@ -120,13 +134,13 @@
         /* Información oculta (lugar y hora) */
         .info-hidden {
             display: none;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 15px;
             border-radius: 20px;
             border: 3px solid #ffcc00;
-            margin-top: 10px;
+            margin-top: 8px;
             width: 90%;
-            max-width: 300px;
+            max-width: 280px;
             animation: fadeIn 0.5s ease;
         }
 
@@ -137,24 +151,24 @@
         .info-text {
             font-family: 'Comic Neue', cursive;
             font-weight: 700;
-            font-size: 1.1rem;
-            line-height: 2;
+            font-size: 1rem;
+            line-height: 1.8;
             color: #1a237e;
         }
 
         /* Footer */
         .footer-box {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 30px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 5px 25px;
             border-radius: 50px;
             border: 3px solid #ffcc00;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .footer-text {
             font-family: 'Fredoka One', cursive;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #c62828;
         }
 
@@ -172,7 +186,7 @@
             background: conic-gradient(
                 #ffcc00, 
                 #ff6b00, 
-                #ffcc00, 
+                #ff00ff, 
                 #ff6b00, 
                 #ffcc00
             );
@@ -200,11 +214,12 @@
 
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             top: -10px;
+            border-radius: 2px;
             animation: fall linear infinite;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         @keyframes fall {
@@ -215,14 +230,15 @@
         /* Estrellas brillantes */
         .star-bright {
             position: absolute;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #ffd700;
             animation: twinkle 1.5s ease-in-out infinite alternate;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
         }
 
         @keyframes twinkle {
-            0% { opacity: 0.3; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.2); }
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.3); }
         }
 
         @keyframes fadeIn {
@@ -232,10 +248,19 @@
 
         /* Responsive */
         @media (max-width: 400px) {
-            h1 { font-size: 2rem; }
-            .invite-text { font-size: 1.1rem; }
-            .footer-text { font-size: 2rem; }
-            .btn-info { font-size: 1rem; padding: 10px 25px; }
+            h1 { font-size: 1.8rem; }
+            .invite-text { font-size: 1rem; }
+            .footer-text { font-size: 1.8rem; }
+            .btn-info { font-size: 0.9rem; padding: 8px 20px; }
+            .invite-box { padding: 12px 15px; }
+            .title-box { padding: 5px 20px; }
+        }
+
+        @media (min-width: 500px) {
+            .invitation-card { max-width: 450px; }
+            h1 { font-size: 2.8rem; }
+            .invite-text { font-size: 1.4rem; }
+            .footer-text { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -247,10 +272,12 @@
         <div class="confetti-container" id="confettiContainer"></div>
 
         <!-- Estrellas brillantes -->
-        <div class="star-bright" style="top: 10%; left: 8%;">✦</div>
-        <div class="star-bright" style="top: 15%; right: 10%; animation-delay: 0.5s;">✦</div>
-        <div class="star-bright" style="bottom: 20%; left: 5%; animation-delay: 1s;">✦</div>
-        <div class="star-bright" style="bottom: 25%; right: 8%; animation-delay: 0.3s;">✦</div>
+        <div class="star-bright" style="top: 8%; left: 6%;">✦</div>
+        <div class="star-bright" style="top: 12%; right: 8%; animation-delay: 0.5s;">✦</div>
+        <div class="star-bright" style="bottom: 18%; left: 5%; animation-delay: 1s;">✦</div>
+        <div class="star-bright" style="bottom: 22%; right: 6%; animation-delay: 0.3s;">✦</div>
+        <div class="star-bright" style="top: 50%; left: 3%; animation-delay: 0.8s;">✦</div>
+        <div class="star-bright" style="top: 45%; right: 4%; animation-delay: 1.2s;">✦</div>
 
         <div class="content">
             <!-- Título -->
@@ -275,9 +302,9 @@
             <!-- Información oculta -->
             <div class="info-hidden" id="infoHidden">
                 <div class="info-text">
-                    📅 29 de junio del 2026<br>
-                    🕐 16:30 Hrs<br>
-                    📍 Teatro Caupolicán
+                    29 de junio del 2026<br>
+                    16:30 Hrs<br>
+                    Teatro Caupolicán
                 </div>
             </div>
 
@@ -300,16 +327,16 @@
         // Generar confeti
         function createConfetti() {
             const container = document.getElementById('confettiContainer');
-            const colors = ['#ffcc00', '#ff6b00', '#ff0000', '#ff00ff', '#00ff00', '#ffa500'];
+            const colors = ['#ffcc00', '#ff6b00', '#ff0000', '#ff00ff', '#00ccff', '#ffa500', '#ff1493', '#00ff7f'];
             
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 25; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + '%';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.width = Math.random() * 8 + 5 + 'px';
-                confetti.style.height = Math.random() * 8 + 5 + 'px';
-                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.width = Math.random() * 6 + 4 + 'px';
+                confetti.style.height = Math.random() * 6 + 4 + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
                 confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
                 confetti.style.animationDelay = Math.random() * 2 + 's';
                 container.appendChild(confetti);
@@ -325,7 +352,7 @@
 
         // Iniciar confeti
         createConfetti();
-        setInterval(refreshConfetti, 6000);
+        setInterval(refreshConfetti, 5000);
     </script>
 
 </body>
